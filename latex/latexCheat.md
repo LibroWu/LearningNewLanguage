@@ -1,3 +1,13 @@
+## 学习资料
+
+#### oiwiki 入门
+
+https://oi-wiki.org/tools/latex/
+
+#### overleaf的guide
+
+https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes
+
 ## 头文件及基础结构
 
 #### 宏包
@@ -301,6 +311,16 @@ $\underbrace{a+b+\cdots+z}_{26}$
 
 ---------------
 
+Below is a table with some common maths symbols. For a more complete list see the [List of Greek letters and math symbols](https://www.overleaf.com/learn/latex/List_of_Greek_letters_and_math_symbols):
+
+| description        | code                                      | examples                                                     |
+| :----------------- | :---------------------------------------- | :----------------------------------------------------------- |
+| Binary operators   | `\times \otimes \oplus \cup \cap`         | ![{\displaystyle \times }](https://wikimedia.org/api/rest_v1/media/math/render/svg/0ffafff1ad26cbe49045f19a67ce532116a32703) ![{\displaystyle \otimes }](https://wikimedia.org/api/rest_v1/media/math/render/svg/de29098f5a34ee296a505681a0d5e875070f2aea) ![{\displaystyle \oplus }](https://wikimedia.org/api/rest_v1/media/math/render/svg/8b16e2bdaefee9eed86d866e6eba3ac47c710f60) ![{\displaystyle \cup }](https://wikimedia.org/api/rest_v1/media/math/render/svg/e8ff7d0293ad19b43524a133ae5129f3d71f2040) ![{\displaystyle \cap }](https://wikimedia.org/api/rest_v1/media/math/render/svg/9d4e886e6f5a28a33e073fb108440c152ecfe2d3) |
+| Relation operators | `< > \subset \supset \subseteq \supseteq` | ![{\displaystyle <\ >\subset \ \supset \ \subseteq \ \supseteq }](https://wikimedia.org/api/rest_v1/media/math/render/svg/a63da6a7d529a33588f1984ad3d395afa2fb7f84) |
+| Others             | `\int \oint \sum \prod`                   | ![{\displaystyle \int \ \oint \ \sum \ \prod }](https://wikimedia.org/api/rest_v1/media/math/render/svg/2c8408720477c3b44a83b7bf9d6c0448caf97a16) |
+
+Different classes of mathematical symbols are characterized by different formatting (for example, variables are italicized, but [operators](https://www.overleaf.com/learn/latex/Operators) are not) and different [spacing](https://www.overleaf.com/learn/latex/Spacing_in_math_mode).
+
 #### 常用数学符号
 
 ```python
@@ -350,6 +370,8 @@ BUILTIN_CALLEES = {
 ![img](https://upload-images.jianshu.io/upload_images/9874038-ceef1cccb06ffb34.jpg?imageMogr2/auto-orient/strip|imageView2/2/w/874/format/webp)
 
 ## 引用
+
+https://www.cnblogs.com/yifdu25/p/8330652.html
 
 #### 参考文件类型设置
 
@@ -429,5 +451,48 @@ roman Roman arabic
 \thepage               %显示当前page
 ```
 
+## newcommand
 
+https://www.overleaf.com/learn/latex/Commands
 
+##### 无参数
+
+```latex
+\newcommand{\R}{\mathbb{R}}
+```
+
+##### 有参数
+
+The line `\newcommand{\bb}[1]{\mathbb{#1}}` defines a new command that takes one parameter.
+
+- `\bb`
+
+  This is the name of the new command.
+
+- `[1]`
+
+  The number of parameters the new command will take.
+
+- `\mathbb{#1}`
+
+  This is what the command actually does. In this case the parameter, referenced as #1, will be written using blackboard boldface characters. If the defined new command needs more than one parameter, you can refer each parameter by #1, #2 and so on, up to 9 parameters are supported.
+
+##### 参数缺省
+
+Let's analyse the syntax of the line `\newcommand{\plusbinomial}[3][2]{(#2 + #3)^#1}`:
+
+- `\plusbinomial`
+
+  This is the name of the new command.
+
+- `[3]`
+
+  The number of parameters the command will take, in this case 3.
+
+- `[2]`
+
+  Is the default value for the first parameter. This is what makes the first parameter optional, if not passed it will use this default value.
+
+- `(#2 + #3)^#1`
+
+  This is what the command does. In this case it will put the second and third parameters in a "binomial format" to the power represented by the first parameter.
