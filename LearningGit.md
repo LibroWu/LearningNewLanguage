@@ -480,3 +480,8 @@ $ cat .git/config
 #### 搭建git服务器
 
 https://www.liaoxuefeng.com/wiki/896043488029600/899998870925664
+
+[配置 Git 处理行结束符](https://docs.github.com/cn/github/getting-started-with-github/configuring-git-to-handle-line-endings#per-repository-settings)
+
+
+
